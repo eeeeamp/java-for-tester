@@ -1,4 +1,4 @@
-package string_lesson;
+package lessons;
 
 public class StringMain {
 
