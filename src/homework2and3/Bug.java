@@ -2,6 +2,7 @@ package homework2and3;
 
 public class Bug {
 
+    private static int bugCounter = 0;
     private String description;
     private String creatorEmail;
     private int bugPriority;
@@ -13,6 +14,11 @@ public class Bug {
         this.creatorEmail = creatorEmail;
         this.bugPriority = bugPriority;
         this.status = status;
+        bugCounter++;
+    }
+
+    public static int getBugCounter() {
+        return bugCounter;
     }
 
     public String getDescription() {
@@ -85,13 +91,13 @@ public class Bug {
 
     public String statusOfBug() {
 
-        if (status = true) {
+        if (status) {
 
             return "Open";
 
         } else {
 
-            return "Close";
+            return "Closed";
         }
 
     }

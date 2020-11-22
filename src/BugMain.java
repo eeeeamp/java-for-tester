@@ -29,6 +29,8 @@ public class BugMain {
         System.out.println("Information about bug was not changed: ");
         newBug.presentAllInfo();
 
+        System.out.println("Were created " + Bug.getBugCounter() + "bugs");
+
     }
 
 }
