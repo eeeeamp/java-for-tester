@@ -1,4 +1,4 @@
-package homework5;
+package homework5and6;
 
 public class ComputerMain {
 

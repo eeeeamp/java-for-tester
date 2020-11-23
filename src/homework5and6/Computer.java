@@ -1,12 +1,13 @@
-package homework5;
+package homework5and6;
 
-public class Computer {
+abstract public class Computer {
 
     protected String name;
     protected String type;
     protected int hdd;
     protected int ram;
     protected boolean state;
+    protected int volumeLevel;
 
     public Computer(String name, String type, int hdd, int ram) {
         this.name = name;
@@ -14,6 +15,7 @@ public class Computer {
         this.hdd = hdd;
         this.ram = ram;
         this.state = false;
+        this.volumeLevel = 0;
     }
 
     public String getName() {
@@ -54,8 +56,16 @@ public class Computer {
     }
 
     public void switchOff() {
-        System.out.println("Computer is switched off");
+        System.out.println("Computer " + name + " is switched off");
         this.state = false;
     }
+
+    public abstract int volumeUp();
+
+    public abstract int volumeUp(int volumeLevelCounter);
+
+    public abstract int volumeDown();
+
+    public abstract int volumeDown(int volumeLevelCounter);
 
 }
