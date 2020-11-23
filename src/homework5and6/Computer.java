@@ -60,12 +60,24 @@ abstract public class Computer {
         this.state = false;
     }
 
-    public abstract int volumeUp();
+    public abstract void volumeUp();
 
-    public abstract int volumeUp(int volumeLevelCounter);
+    public abstract void volumeUp(int volumeLevelCounter);
 
-    public abstract int volumeDown();
+    public abstract void volumeDown();
 
-    public abstract int volumeDown(int volumeLevelCounter);
+    public abstract void volumeDown(int volumeLevelCounter);
 
+    public void displayVolumeLevel() {
+        System.out.println("Current volume level is: " + volumeLevel);
+    }
+
+    protected boolean volumeChangerValidator(int volumeChanger) {
+        if (volumeChanger > 0) {
+            return true;
+        } else {
+            System.out.print("Volume changer must be positive.");
+            return false;
+        }
+    }
 }

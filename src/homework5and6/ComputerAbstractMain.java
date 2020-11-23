@@ -20,20 +20,38 @@ public class ComputerAbstractMain {
         System.out.println(((Laptop) msi).getBatteryLevel());
 
         System.out.println("Changing volume level tests - Laptop");
-        System.out.println(msi.volumeUp(50));
-        System.out.println(msi.volumeUp(48));
-        System.out.println(msi.volumeUp(500)); //100
-        System.out.println(msi.volumeUp()); //102
-        System.out.println(msi.volumeDown(98));
-        System.out.println(msi.volumeDown());
+        msi.volumeUp(50);
+        msi.displayVolumeLevel();
+        msi.volumeUp(48);
+        msi.displayVolumeLevel();
+        msi.volumeUp(-48);
+        msi.displayVolumeLevel();
+        msi.volumeUp(500);
+        msi.displayVolumeLevel();
+        msi.volumeDown(-895);
+        msi.displayVolumeLevel();
+        msi.volumeDown(99);
+        msi.displayVolumeLevel();
+        msi.volumeDown();
+        msi.displayVolumeLevel();
 
         System.out.println("Changing volume level tests - PC");
-        System.out.println(officeComputer2.volumeUp(50));
-        System.out.println(officeComputer2.volumeUp(49));
-        System.out.println(officeComputer2.volumeUp());
-        System.out.println(officeComputer2.volumeUp(700));
-        System.out.println(officeComputer2.volumeDown(99));
-        System.out.println(officeComputer2.volumeDown());
+        officeComputer2.volumeUp(50);
+        officeComputer2.displayVolumeLevel();
+        officeComputer2.volumeUp(-700);
+        officeComputer2.displayVolumeLevel();
+        officeComputer2.volumeUp(49);
+        officeComputer2.displayVolumeLevel();
+        officeComputer2.volumeUp();
+        officeComputer2.displayVolumeLevel();
+        officeComputer2.volumeUp(700);
+        officeComputer2.displayVolumeLevel();
+        officeComputer2.volumeDown(99);
+        officeComputer2.displayVolumeLevel();
+        officeComputer2.volumeDown(-99);
+        officeComputer2.displayVolumeLevel();
+        officeComputer2.volumeDown();
+        officeComputer2.displayVolumeLevel();
 
     }
 }

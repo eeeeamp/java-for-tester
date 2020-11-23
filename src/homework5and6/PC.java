@@ -29,42 +29,38 @@ public class PC extends Computer {
         this.isPowerSupply = newStateOfPowerSupply;
     }
 
-    public int volumeUp() {
+    public void volumeUp() {
         volumeLevel += 1;
         if (volumeLevel >= 100) {
-            return volumeLevel = 100;
-        } else {
-            return volumeLevel;
+            volumeLevel = 100;
         }
     }
 
     @Override
-    public int volumeUp(int volumeLevelCounter) {
-        volumeLevel += volumeLevelCounter;
-        if (volumeLevel >= 100) {
-            return volumeLevel = 100;
-        } else {
-            return volumeLevel;
+    public void volumeUp(int volumeChanger) {
+        if (volumeChangerValidator(volumeChanger)) {
+            volumeLevel += volumeChanger;
+            if (volumeLevel >= 100) {
+                volumeLevel = 100;
+            }
         }
     }
 
     @Override
-    public int volumeDown() {
+    public void volumeDown() {
         volumeLevel -= 1;
         if (volumeLevel <= 0) {
-            return volumeLevel = 0;
-        } else {
-            return volumeLevel;
+            volumeLevel = 0;
         }
     }
 
     @Override
-    public int volumeDown(int volumeLevelCounter) {
-        volumeLevel -= volumeLevelCounter;
-        if (volumeLevel <= 0) {
-            return volumeLevel = 0;
-        } else {
-            return volumeLevel;
+    public void volumeDown(int volumeChanger) {
+        if (volumeChangerValidator(volumeChanger)) {
+            volumeLevel -= volumeChanger;
+            if (volumeLevel <= 0) {
+                volumeLevel = 0;
+            }
         }
     }
 }
