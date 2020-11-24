@@ -4,8 +4,11 @@ public class ComputerMain {
 
     public static void main(String[] args) {
 
-        Laptop gamingLaptop = new Laptop("Gaming Laptop", "gaming", 500, 128, 20);
-        PC officeComputer = new PC("Office PC", "office", 500, 256, false);
+        Hdd hdd = new Hdd("Samsung", 500);
+        Ram ram = new Ram("AAA", 256);
+
+        Laptop gamingLaptop = new Laptop("Gaming Laptop", "gaming", hdd, ram, 20);
+        PC officeComputer = new PC("Office PC", "office", hdd, ram, false);
 
         gamingLaptop.switchOn();
         System.out.println(gamingLaptop.state);

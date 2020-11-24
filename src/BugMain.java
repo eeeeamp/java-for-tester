@@ -5,12 +5,21 @@ public class BugMain {
     public static void main(String[] args) {
 
         Bug bug = new Bug("Bug", "emilka@test.pl", 4, true);
+        Bug bug1 = new Bug("Bug", "emilka@test.pl", 4, true);
 
+        //toString method
+        System.out.println(bug);
+
+        //equals method
+        System.out.println(bug.equals(bug1)); //compare references, we need to override method to compare data inside
+
+        System.out.println("--------------------------------");
         //homework2
         bug.presentAllInfo();
         bug.presentCreatorEmail();
         System.out.println("Priority of bug is: " + bug.priorityOfBug());
 
+        System.out.println("--------------------------------");
         //homework3
         Bug newBug = new Bug ("Description of new bug", "tester@test.pl", 1, false);
 
@@ -30,6 +39,8 @@ public class BugMain {
         newBug.presentAllInfo();
 
         System.out.println("Were created " + Bug.getBugCounter() + "bugs");
+
+
 
     }
 

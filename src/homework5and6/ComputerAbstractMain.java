@@ -4,11 +4,16 @@ public class ComputerAbstractMain {
 
     public static void main(String[] args) {
 
-        Computer officeComputer1 = new PC("Office Computer Emilia", "Dell", 500, 128, true);
-        Computer officeComputer2 = new PC("Office Computer Kamil", "Dell", 500, 128, true);
-        Computer officeComputer3 = new PC("Office Computer Piotr", "HP", 500, 256, true);
-        Computer msi = new Laptop("msi Prestige", "msi", 500, 256, 90);
-        Computer macbook = new Laptop("MB Pro", "PRO", 500, 256, 50);
+        Hdd hdd = new Hdd("Samsung", 500);
+        Ram ram = new Ram("AAA", 256);
+
+        Computer officeComputer1 = new PC("Office Computer Emilia", "Dell", hdd, ram, true);
+        Computer officeComputer2 = new PC("Office Computer Kamil", "Dell", hdd, ram, true);
+        Computer officeComputer3 = new PC("Office Computer Piotr", "HP", hdd, ram, true);
+        Computer msi = new Laptop("msi Prestige", "msi", hdd, ram, 90);
+        Computer macbook = new Laptop("MB Pro", "PRO", hdd, ram, 50);
+
+        System.out.println(msi.getRam().getSize());
 
         Computer[] computers = {officeComputer1, officeComputer2, officeComputer3, msi, macbook};
 

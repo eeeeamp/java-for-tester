@@ -1,19 +1,19 @@
-package homework2and3;
+package homework7;
 
 import java.util.Objects;
 
-public class Bug {
+public class Bug implements ConsoleNotification {
 
     private static int bugCounter = 0;
     private String description;
-    private String creatorEmail;
     private int bugPriority;
     private boolean status;
+    private BugReporter bugReporter;
 
-    public Bug(String description, String creatorEmail, int bugPriority, boolean status) {
+    public Bug(String description, BugReporter bugReporter, int bugPriority, boolean status) {
 
         this.description = description;
-        this.creatorEmail = creatorEmail;
+        this.bugReporter = bugReporter;
         this.bugPriority = bugPriority;
         this.status = status;
         bugCounter++;
@@ -36,16 +36,12 @@ public class Bug {
         }
     }
 
-    public String getCreatorEmail() {
-        return creatorEmail;
+    public BugReporter getBugReporter() {
+        return bugReporter;
     }
 
-    public void setCreatorEmail(String creatorEmail) {
-        if (!creatorEmail.contains("@")) {
-            System.out.println("Email is not correct, email should contain @ sign");
-        } else {
-            this.creatorEmail = creatorEmail;
-        }
+    public void setBugReporter(BugReporter bugReporter) {
+        this.bugReporter = bugReporter;
     }
 
     public int getBugPriority() {
@@ -62,15 +58,7 @@ public class Bug {
 
     public void setStatus(boolean status) {
         this.status = status;
-    }
-
-    public void presentAllInfo() {
-        System.out.println("Please find all information about created bug: " + description + " " + creatorEmail
-                + " " + bugPriority + " " + statusOfBug());
-    }
-
-    public void presentCreatorEmail() {
-        System.out.println("Bug was created by: " + creatorEmail);
+        notifyStatusChange();
     }
 
     public String statusOfBug() {
@@ -89,25 +77,14 @@ public class Bug {
     public String toString() {
         return "Bug{" +
                 "description='" + description + '\'' +
-                ", creatorEmail='" + creatorEmail + '\'' +
                 ", bugPriority=" + bugPriority +
-                ", status=" + status +
+                ", status=" + statusOfBug() +
+                ", bugReporter=" + bugReporter +
                 '}';
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Bug bug = (Bug) o;
-        return bugPriority == bug.bugPriority &&
-                status == bug.status &&
-                Objects.equals(description, bug.description) &&
-                Objects.equals(creatorEmail, bug.creatorEmail);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(description, creatorEmail, bugPriority, status);
+    public void notifyStatusChange() {
+        System.out.println("Status of the bug is changed!");
     }
 }
