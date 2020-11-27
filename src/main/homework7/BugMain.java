@@ -8,11 +8,11 @@ public class BugMain {
         Bug newBug = new Bug("This is a bug!", bugReporter, 3, true);
         Bug closedBug = new Bug("This is a bug!", bugReporter, 3, false);
 
-        System.out.println(newBug.toString());
-        System.out.println(closedBug.toString());
+        System.out.println(newBug);
+        System.out.println(closedBug);
 
         newBug.getBugReporter().setCreatorEmail("changetest.pl");
-        System.out.println(newBug.toString());
+        System.out.println(newBug);
 
         newBug.setStatus(false);
     }

@@ -2,7 +2,7 @@ package homework7;
 
 import java.util.Objects;
 
-public class Bug implements ConsoleNotification {
+public class Bug implements ConsoleNotification, Comparable<Bug> {
 
     private static int bugCounter = 0;
     private String description;
@@ -84,7 +84,32 @@ public class Bug implements ConsoleNotification {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bug bug = (Bug) o;
+        return bugPriority == bug.bugPriority &&
+                status == bug.status &&
+                Objects.equals(description, bug.description) &&
+                Objects.equals(bugReporter, bug.bugReporter);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, bugPriority, status, bugReporter);
+    }
+
+    @Override
     public void notifyStatusChange() {
         System.out.println("Status of the bug is changed!");
+    }
+
+    @Override
+    public int compareTo(Bug bug) {
+        int compareResult = this.getDescription().compareTo(bug.getDescription());
+        if(compareResult == 0){
+            compareResult = this.getBugReporter().getCreatorEmail().compareTo(bug.getBugReporter().getCreatorEmail());
+        }
+        return compareResult;
     }
 }
