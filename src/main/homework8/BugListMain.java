@@ -34,7 +34,7 @@ public class BugListMain {
 
         Set<Bug> orderedUniqueBugsList = new TreeSet<>(uniqueBugsList);
 
-        for(Bug bug : orderedUniqueBugsList){
+        for (Bug bug : orderedUniqueBugsList) {
             System.out.println(bug.getDescription() + " " + bug.getBugReporter().getCreatorEmail());
         }
 
