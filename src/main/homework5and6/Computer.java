@@ -81,4 +81,16 @@ abstract public class Computer {
             return false;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Computer{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", hdd=" + hdd +
+                ", ram=" + ram +
+                ", state=" + state +
+                ", volumeLevel=" + volumeLevel +
+                '}';
+    }
 }
