@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ComputersListMain {
+public class ComputersListTest {
 
 //    1. Zliczyć wszystkie komputery, które maja więcej niż 128 GB ramu
 //    2. Wyświetlic na konsole, wszystkie typy komputerow - map
@@ -180,19 +180,19 @@ public class ComputersListMain {
 
     }
 
-//    @Test
-//    void practiceOrElseThrow() throws Throwable {
-//
-//        Throwable expectedException = new IllegalStateException(exception);
-//
-//        Computer dNameComputer = computers.stream()
-//                .filter(computer -> computer.getName().startsWith("D"))
-//                .findFirst()
-//                .orElseThrow(() -> expectedException);
-//
-//        assertEquals(exception, expectedException.getMessage());
-//
-//    }
+    @Test
+    void practiceOrElseThrow() throws Throwable {
+
+        Throwable expectedException = new IllegalStateException(exception);
+
+        Computer dNameComputer = computers.stream()
+                .filter(computer -> computer.getName().startsWith("D"))
+                .findFirst()
+                .orElseThrow(() -> expectedException);
+
+        assertEquals(exception, expectedException.getMessage());
+
+    }
 
     @Test
     void practiceIfPresent() {
