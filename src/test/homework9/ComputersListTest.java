@@ -1,8 +1,7 @@
 package homework9;
 
-import homework5and6.*;
 import jdk.jfr.Name;
-import org.junit.jupiter.api.Assertions;
+import model.computer.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -181,16 +180,12 @@ public class ComputersListTest {
     }
 
     @Test
-    void practiceOrElseThrow() throws Throwable {
+    void practiceOrElseThrow() {
 
-        Throwable expectedException = new IllegalStateException(exception);
-
-        Computer dNameComputer = computers.stream()
+        assertThrows(IllegalStateException.class, () -> computers.stream()
                 .filter(computer -> computer.getName().startsWith("D"))
                 .findFirst()
-                .orElseThrow(() -> expectedException);
-
-        assertEquals(exception, expectedException.getMessage());
+        .orElseThrow(IllegalStateException::new));
 
     }
 

@@ -1,4 +1,4 @@
-import homework2and3.Bug;
+import homeworks.homework2and3.Bug;
 
 public class BugMain {
 
